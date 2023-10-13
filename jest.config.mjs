@@ -1,6 +1,15 @@
-module.exports = {
+import nextJest from "next/jest.js"
+
+const createJestConfig = nextJest({
+  dir: "./",
+})
+
+/** @type {import('jest').Config} */
+const config =  {
   collectCoverageFrom: [
-    "**/*.{js,jsx,ts,tsx}",
+    "app/*.{js,jsx,ts,tsx}",
+    "components/*.{js,jsx,ts,tsx}",
+    "pages/*.{js,jsx,ts,tsx}",
     "!**/*.d.ts",
     "!**/node_modules/**",
   ],
@@ -22,7 +31,7 @@ module.exports = {
     "<rootDir>/.next/",
     "<rootDir>/e2e/",
   ],
-  testEnvironment: "jsdom",
+  testEnvironment: "jest-environment-jsdom",
   transform: {
     /* Use babel-jest to transpile tests with the next/babel preset
     https://jestjs.io/docs/configuration#transform-objectstring-pathtotransformer--pathtotransformer-object */
@@ -32,5 +41,7 @@ module.exports = {
     "/node_modules/",
     "^.+\\.module\\.(css|sass|scss)$",
   ],
-  setupFilesAfterEnv: ["<rootDir>/jest.setup.js"],
+  setupFilesAfterEnv: ["jest.setup.ts"],
 };
+
+export default createJestConfig(config)
