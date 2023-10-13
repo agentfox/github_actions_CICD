@@ -1,5 +1,5 @@
 {
-  "name": "testing-is-awesome",
+  "name": "github-action-cicd",
   "private": true,
   "scripts": {
     "dev": "next dev",
