@@ -41,7 +41,7 @@ const config =  {
     "/node_modules/",
     "^.+\\.module\\.(css|sass|scss)$",
   ],
-  setupFilesAfterEnv: ["jest.setup.ts"],
+  setupFilesAfterEnv: ["./jest.setup.ts"],
 };
 
 export default createJestConfig(config)
